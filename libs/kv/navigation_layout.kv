@@ -12,14 +12,14 @@
                         title: 'QR Attendance'
                         left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
                         theme_text_color: 'Custom'
-                        md_bg_color: rgba('#39aea8')
+                        md_bg_color: rgba('#07575B')
                         elevation:5
 
                     ScreenManager:
                         id: manage
 
-                        # ClassScreen:
-                        #     name: 'classes'
+                        HomeScreen:
+                            name: 'home_screen'
 
                         # AboutScreen:
                         #     name: 'about_app'
@@ -32,7 +32,7 @@
 
             canvas:
                 Color:
-                    rgba: rgba('#303030')
+                    rgba: rgba('#FFFFFF')
                 Rectangle:
                     pos: self.pos
                     size: self.size
@@ -47,60 +47,48 @@
                 ScrollView:
                     MDList:
                         OneLineIconListItem:
-                            text: "Classes"
-                            theme_text_color: 'Custom'
-                            text_color: rgba('#FFFFFF')
-                            on_release:
-                                app.show_screen("classes")
-                                nav_drawer.set_state("close")
-                            IconLeftWidget:
-                                icon: "folder-open"
-                                theme_text_color: 'Custom'
-                                text_color: rgba('#FFFFFF')
-                                on_release:
-                                    app.show_screen("classes")
-                                    nav_drawer.set_state("close")
-                        OneLineIconListItem:
                             text: "About the app"
                             theme_text_color: 'Custom'
-                            text_color: rgba('#FFFFFF')
+                            text_color: rgba('#07575B')
                             on_release:
-                                app.show_screen("about_app")
+                                #app.show_screen("about_app")
                                 nav_drawer.set_state("close")
                             IconLeftWidget:
                                 icon: "card-bulleted-settings"
                                 theme_text_color: 'Custom'
-                                text_color: rgba('#FFFFFF')
+                                text_color: rgba('#07575B')
                                 on_release:
-                                    app.show_screen("about_app")
+                                    #app.show_screen("about_app")
                                     nav_drawer.set_state("close")
                         OneLineIconListItem:
                             text: "Help"
                             theme_text_color: 'Custom'
-                            text_color: rgba('#FFFFFF')
+                            text_color: rgba('#07575B')
                             on_release:
-                                app.show_screen("help")
+                                #app.show_screen("help")
                                 nav_drawer.set_state("close")
                             IconLeftWidget:
                                 icon: "account-question"
                                 theme_text_color: 'Custom'
-                                text_color: rgba('#FFFFFF')
+                                text_color: rgba('#07575B')
                                 on_release:
-                                    app.show_screen("help")
+                                    #app.show_screen("help")
                                     nav_drawer.set_state("close")
                         OneLineIconListItem:
                             text: "Logout"
                             theme_text_color: 'Custom'
-                            text_color: rgba('#FFFFFF')
+                            text_color: rgba('#07575B')
                             on_release:
-                                app.show_screen("classes")
-                                root.manager.current="login"
                                 nav_drawer.set_state("close")
+                                root.manager.current="login"
+                                root.manager.transition.direction = 'right'
+                                root.manager.transition.duration = .3
                             IconLeftWidget:
                                 icon: "logout"
                                 theme_text_color: 'Custom'
-                                text_color: rgba('#FFFFFF')
+                                text_color: rgba('#07575B')
                                 on_release:
                                     nav_drawer.set_state("close")
-                                    #app.show_screen("classes")
                                     root.manager.current="login"
+                                    root.manager.transition.direction = 'right'
+                                    root.manager.transition.duration = .3

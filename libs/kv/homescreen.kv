@@ -1,0 +1,53 @@
+<HomeScreen>:
+	name: 'home_screen'
+	Widget:
+		canvas:
+			Color:
+				rgba: rgba('#E1E1E1')
+			Rectangle:
+				size: self.size
+				pos: self.pos
+    FloatLayout:
+		pos_hint: {'center_y': 0.5, 'center_x': 0.65}
+		size_hint: 0.50, 0.90
+		canvas:
+			Color:
+				rgba: rgba('#07575B')
+			RoundedRectangle:
+                radius: [40,40,40,40]
+				size: self.size
+				pos: self.pos
+    FloatLayout:
+		pos_hint: {'center_y': 0.74, 'center_x': 0.2}
+		size_hint: 0.20, 0.40
+		canvas:
+			Color:
+				rgba: rgba('#61A4AD')
+			RoundedRectangle:
+                radius: [40,40,40,40]
+				size: self.size
+				pos: self.pos
+    MDLabel:
+        text: ('[font=Fonts/Roboto-Black]STUDENT NUMBER[/font]')
+        halign: 'center'
+        font_size: '15dp'
+        markup: True
+        halign: "center"
+        theme_text_color: 'Custom'
+        text_color: rgba('#07575B')
+        pos_hint: {'center_x': 0.2, 'center_y' : 0.46}
+    FloatLayout:
+		pos_hint: {'center_y': 0.38, 'center_x': 0.2}
+		size_hint: 0.20, 0.10
+		canvas:
+			Color:
+				rgba: rgba('#61A4AD')
+			RoundedRectangle:
+                radius: [30,30,30,30]
+				size: self.size
+				pos: self.pos
+    Image:
+        pos_hint: {'center_x': 0.2, 'center_y' : 0.15}
+        source: 'Media/QR_Attendance_Logo.png'
+        size_hint_x: 0.125
+        allow_stretch: False

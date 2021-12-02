@@ -7,6 +7,29 @@
 			Rectangle:
 				size: self.size
 				pos: self.pos
+    FloatLayout:
+		pos_hint: {'center_y': 0.85, 'center_x': 0.1}
+		size_hint: 0.4, 0.7
+        canvas:
+            Color:
+                rgb: 1, 1, 1
+            Ellipse:
+                pos: self.pos
+                size: self.size
+    FloatLayout:
+		pos_hint: {'center_y': 0.2, 'center_x': 0.65}
+		size_hint: 0.4, 0.7
+        canvas:
+            Color:
+                rgb: 1, 1, 1
+            Ellipse:
+                pos: self.pos
+                size: self.size
+    Image:
+        pos_hint: {'center_x': 0.35, 'center_y' : 0.5}
+        source: 'Media/Front_Image.png'
+        size_hint_x: 0.6
+        allow_stretch: False
 	FloatLayout:
 		pos_hint: {'center_y': 0.5, 'center_x': 0.85}
 		size_hint: 0.30, 1
@@ -88,9 +111,10 @@
 			md_bg_color: rgba('#07575B')
             font_size: "10dp"
 			pos_hint: {'center_x' : 0.5, 'center_y' : 0.22}
-			# on_press:
-			# 	root.do_login(username.text, password.text)
-            #     username.text = ""
-            #     password.text = ""
-            #     root.manager.transition.direction = 'left'
-            #     root.manager.transition.duration = .3
+			on_press:
+				# root.do_login(username.text, password.text)
+                # username.text = ""
+                # password.text = ""
+                root.manager.transition.direction = 'left'
+                root.manager.transition.duration = .3
+                app.show_screen('home_screen')
