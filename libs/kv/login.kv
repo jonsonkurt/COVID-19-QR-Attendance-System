@@ -1,0 +1,78 @@
+# forms the design and layout of login screen
+<LoginScreen>:
+	Widget:
+		canvas:
+			Color:
+				rgba: rgba('#C69C6D')
+			Rectangle:
+				size: self.size
+				pos: self.pos
+	FloatLayout:
+		pos_hint: {'center_y': 0.5, 'center_x': 0.5}
+		size_hint: 0.80, 0.85
+		canvas:
+			Color:
+				rgba: rgba('#f4ebe2')
+			RoundedRectangle:
+				size: self.size
+				pos: self.pos
+				radius: [50, 50, 50, 50]
+        MDIcon:
+			pos_hint: {'center_x': 0.5, 'center_y' : 0.75}
+			size_hint: (.45, .5)
+			icon: 'Media/QR_Attendance_Logo.png'
+		MDLabel:
+			text: 'USERNAME'
+            bold: True
+			halign: "left"
+			theme_text_color: 'Custom'
+			text_color: rgba('#707070') 
+			text_size: (0.4, 0.2)
+            pos_hint: {'center_x': 0.737, 'center_y' : 0.505}
+		MDTextFieldRound:
+			id: username
+			hint_text: 'you@example.com'
+			text_color: rgba('#C69C6D')
+			size_hint: (0.5, None)
+			pos_hint: {'center_x' : 0.5, 'center_y' : 0.43}
+			normal_color: rgba('#f4ebe2')
+			fill_color: rgba('#f4ebe2')
+			color_active: rgba('#f4ebe2')
+			color_focus: rgba('#f4ebe2')
+			line_color: rgba('#C69C6D')
+			icon_right: "email"
+			icon_right_color: rgba('#c69c6d')
+		MDLabel:
+			text: 'PASSWORD'
+            bold: True
+			halign: "left"
+			theme_text_color: 'Custom'
+			text_color: rgba('#707070')
+			text_size: (0.4, 0.2)
+            pos_hint: {'center_x': 0.737, 'center_y' : 0.355}
+		MDTextFieldRound:
+			id: password
+			password: True
+			hint_text: 'Enter 6 character or more'
+			text_color: rgba('#C69C6D')
+			size_hint: (0.5, None)
+			pos_hint: {'center_x' : 0.5, 'center_y' : 0.275}
+			normal_color: rgba('#f4ebe2')
+			fill_color: rgba('#f4ebe2')
+			color_active: rgba('#f4ebe2')
+			color_focus: rgba('#f4ebe2')
+			line_color: rgba('#C69C6D')
+			icon_right: "lock"
+			icon_right_color: rgba('#c69c6d')
+		MDFillRoundFlatButton:
+			text: '[color=#FFFFFF][b]LOG IN[/b][/color]'
+			markup: True
+			md_bg_color: rgba('#C69C6D')
+			size_hint: (0.15, None)
+			pos_hint: {'center_x' : 0.5, 'center_y' : 0.140}
+			on_press:
+				root.do_login(username.text, password.text)
+                username.text = ""
+                password.text = ""
+                root.manager.transition.direction = 'left'
+                root.manager.transition.duration = .3
