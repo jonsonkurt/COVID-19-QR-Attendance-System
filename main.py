@@ -60,8 +60,9 @@ class MyApp(MDApp):
 
     def build(self):
 
+        self.icon = 'qr_attendance.ico'
         #self.theme_cls.colors = colors
-        self.theme_cls.primary_palette = "Teal"
+        self.theme_cls.primary_palette = "Blue"
         # self.theme_cls.accent_palette = "Blue"
         screen = Builder.load_file("main.kv")
         return screen
