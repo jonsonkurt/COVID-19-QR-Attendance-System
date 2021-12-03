@@ -8,7 +8,7 @@ from kivymd.app import MDApp
 from kivy.lang.builder import Builder
 from kivy.properties import NumericProperty
 
-from libs.baseclass import login, navigation_layout, homescreen
+from libs.baseclass import login, navigation_layout, homescreen, about, help
 
 # this class serves as the main class that runs the system
 class MyApp(MDApp):
