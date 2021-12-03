@@ -17,6 +17,143 @@
                 radius: [40,40,40,40]
 				size: self.size
 				pos: self.pos
+		MDLabel:
+			text: ('[font=Fonts/Roboto-Black]STUDENT NAME[/font]')
+			font_size: '15dp'
+			markup: True
+			halign: "left"
+			theme_text_color: 'Custom'
+			text_color: rgba('#FFFFFF')
+			pos_hint: {'center_x': 0.55, 'center_y' : 0.9}
+		FloatLayout:
+			pos_hint: {'center_x': 0.5, 'center_y': 0.78}
+			size_hint: 0.90, 0.15
+			canvas:
+				Color:
+					rgba: rgba('#FFFFFF')
+				RoundedRectangle:
+					radius: [30,30,30,30]
+					size: self.size
+					pos: self.pos
+			MDLabel:
+				text: ('[font=Fonts/Roboto-Black]GATDULA, HANZNYL VISSION T.[/font]')
+				font_size: '19dp'
+				markup: True
+				halign: "center"
+				theme_text_color: 'Custom'
+				text_color: rgba('#07575B')
+				pos_hint: {'center_x': 0.5, 'center_y' : 0.5}
+		MDLabel:
+			text: ('[font=Fonts/Roboto-Black]COURSE AND SECTION[/font]')
+			font_size: '15dp'
+			markup: True
+			halign: "left"
+			theme_text_color: 'Custom'
+			text_color: rgba('#FFFFFF')
+			pos_hint: {'center_x': 0.55, 'center_y' : 0.65}
+		FloatLayout:
+			pos_hint: {'center_x': 0.5, 'center_y': 0.53}
+			size_hint: 0.90, 0.15
+			canvas:
+				Color:
+					rgba: rgba('#FFFFFF')
+				RoundedRectangle:
+					radius: [30,30,30,30]
+					size: self.size
+					pos: self.pos
+			MDLabel:
+				text: ('[font=Fonts/Roboto-Black]BSCPE 3-2[/font]')
+				font_size: '19dp'
+				markup: True
+				halign: "center"
+				theme_text_color: 'Custom'
+				text_color: rgba('#07575B')
+				pos_hint: {'center_x': 0.5, 'center_y' : 0.5}
+		MDLabel:
+			text: ('[font=Fonts/Roboto-Medium]Thursday, December 03, 2021[/font]')
+			font_size: '15dp'
+			markup: True
+			halign: "center"
+			theme_text_color: 'Custom'
+			text_color: rgba('#FFFFFF')
+			pos_hint: {'center_x': 0.5, 'center_y' : 0.4}
+		FloatLayout:
+			pos_hint: {'center_x': 0.5, 'center_y': 0.29}
+			size_hint: 0.004, 0.15
+			canvas:
+				Color:
+					rgba: rgba('#FFFFFF')
+				Rectangle:
+					size: self.size
+					pos: self.pos
+		FloatLayout:
+			pos_hint: {'center_x': 0.35, 'center_y': 0.31}
+			size_hint: 0.15, 0.05
+			canvas:
+				Color:
+					rgba: rgba('#FFFFFF')
+				RoundedRectangle:
+					radius: [20,20,20,20]
+					size: self.size
+					pos: self.pos
+		MDLabel:
+			text: ('[font=Fonts/Roboto-Bold]Time In[/font]')
+			font_size: '13dp'
+			markup: True
+			halign: "center"
+			theme_text_color: 'Custom'
+			text_color: rgba('#07575B')
+			pos_hint: {'center_x': 0.35, 'center_y' : 0.31}
+		MDLabel:
+			text: ('[font=Fonts/Roboto-Medium]07:46:26 AM[/font]')
+			font_size: '15dp'
+			markup: True
+			halign: "center"
+			theme_text_color: 'Custom'
+			text_color: rgba('#FFFFFF')
+			pos_hint: {'center_x': 0.35, 'center_y' : 0.26}
+		FloatLayout:
+			pos_hint: {'center_x': 0.65, 'center_y': 0.31}
+			size_hint: 0.15, 0.05
+			canvas:
+				Color:
+					rgba: rgba('#FFFFFF')
+				RoundedRectangle:
+					radius: [20,20,20,20]
+					size: self.size
+					pos: self.pos
+		MDLabel:
+			text: ('[font=Fonts/Roboto-Bold]Time Out[/font]')
+			font_size: '13dp'
+			markup: True
+			halign: "center"
+			theme_text_color: 'Custom'
+			text_color: rgba('#07575B')
+			pos_hint: {'center_x': 0.65, 'center_y' : 0.31}
+		MDLabel:
+			text: ('[font=Fonts/Roboto-Medium]05:32:17 PM[/font]')
+			font_size: '15dp'
+			markup: True
+			halign: "center"
+			theme_text_color: 'Custom'
+			text_color: rgba('#FFFFFF')
+			pos_hint: {'center_x': 0.65, 'center_y' : 0.26}
+		MDLabel:
+			text: ('[font=Fonts/Roboto-Black]TEMPERATURE[/font]')
+			font_size: '15dp'
+			markup: True
+			halign: "center"
+			theme_text_color: 'Custom'
+			text_color: rgba('#FFFFFF')
+			pos_hint: {'center_x': 0.5, 'center_y' : 0.18}
+		MDLabel:
+			text: ('[font=Fonts/Roboto-Black]36.5°C[/font]')
+			font_size: '21dp'
+			markup: True
+			halign: "center"
+			theme_text_color: 'Custom'
+			text_color: rgba('#FFFFFF')
+			pos_hint: {'center_x': 0.5, 'center_y' : 0.125}
     FloatLayout:
 		pos_hint: {'center_y': 0.74, 'center_x': 0.2}
 		size_hint: 0.20, 0.40
@@ -27,9 +164,23 @@
                 radius: [40,40,40,40]
 				size: self.size
 				pos: self.pos
+		FloatLayout:
+			pos_hint: {'center_y': 0.5, 'center_x': 0.5}
+			size_hint: 0.90, 0.90
+			canvas:
+				Color:
+					rgba: rgba('#FFFFFF')
+				RoundedRectangle:
+					radius: [40,40,40,40]
+					size: self.size
+					pos: self.pos
+			FitImage:
+				pos_hint: {'center_x': 0.5, 'center_y' : 0.5}
+				source: 'Media/Torino.jpg'
+				allow_stretch: False
+				radius: [40,40,40,40]
     MDLabel:
         text: ('[font=Fonts/Roboto-Black]STUDENT NUMBER[/font]')
-        halign: 'center'
         font_size: '15dp'
         markup: True
         halign: "center"
@@ -46,6 +197,14 @@
                 radius: [30,30,30,30]
 				size: self.size
 				pos: self.pos
+		MDLabel:
+			text: ('[font=Fonts/Roboto-Black]201914564[/font]')
+			font_size: '18dp'
+			markup: True
+			halign: "center"
+			theme_text_color: 'Custom'
+			text_color: rgba('#FFFFFF')
+			pos_hint: {'center_x': 0.5, 'center_y' : 0.5}
     Image:
         pos_hint: {'center_x': 0.2, 'center_y' : 0.15}
         source: 'Media/QR_Attendance_Logo.png'

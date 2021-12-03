@@ -10,42 +10,6 @@ from kivy.properties import NumericProperty
 
 from libs.baseclass import login, navigation_layout, homescreen
 
-colors = {
-    "Teal": {
-        "50": "07575B",
-        "100": "07575B",
-        "200": "07575B",
-        "300": "07575B",
-        "400": "07575B",
-        "500": "07575B",
-        "600": "07575B",
-        "700": "07575B",
-        "800": "07575B",
-        "900": "07575B",
-        "A100": "07575B",
-        "A200": "07575B",
-        "A400": "07575B",
-        "A700": "07575B",
-    },
-    "Blue": {
-        "50": "e3f3f8",
-        "100": "b9e1ee",
-        "200": "91cee3",
-        "300": "72bad6",
-        "400": "62acce",
-        "500": "589fc6",
-        "600": "5191b8",
-        "700": "487fa5",
-        "800": "426f91",
-        "900": "35506d",
-        "A100": "b9e1ee",
-        "A200": "91cee3",
-        "A400": "62acce",
-        "A700": "487fa5",
-}
-}
-
-
 # this class serves as the main class that runs the system
 class MyApp(MDApp):
     title="QR Code-Based Attendance System"
