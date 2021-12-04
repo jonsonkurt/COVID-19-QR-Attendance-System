@@ -16,12 +16,12 @@ class LoginScreen(Screen):
         conn = sqlite3.connect("mybase.db")
         cur = conn.cursor()
 
-        cur.execute("CREATE TABLE IF NOT EXISTS accounts(id_num integer PRIMARY KEY, name VARCHAR(30),lastname VARCHAR(30),emid VARCHAR(40),passwd VARCHAR(30),cpasswd VARCHAR(30))")
+        cur.execute("CREATE TABLE IF NOT EXISTS accounts(account_id integer PRIMARY KEY, email_add VARCHAR(30), pass VARCHAR(30))") # Not sure if this is necessary since .db file is provided
         cur.execute("SELECT * FROM accounts")
         cur.fetchall()
 
         if(len(useri) > 0 and len(passwd) > 0):
-            find = ("SELECT * FROM accounts WHERE emid=? AND passwd=?")
+            find = ("SELECT * FROM accounts WHERE email_add = ? AND pass = ?")
             cur.execute(find, [(useri), (passwd)])
             results=cur.fetchall()
 
@@ -32,8 +32,8 @@ class LoginScreen(Screen):
                     app = MDApp.get_running_app()
                     self.manager.transition.direction = "left"
                     self.manager.transition.duration = 0.5
-                    app.show_screen("classes")
-                    toast('Success. Start scanning, ' + i[1] + '!')
+                    app.show_screen("home_screen")
+                    toast('Success. Start scanning !')
             else:
                 return toast('Please enter correct email and password.')
         else:
