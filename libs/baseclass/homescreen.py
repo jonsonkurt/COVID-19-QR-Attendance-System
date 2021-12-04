@@ -15,4 +15,5 @@ from kivy.properties import NumericProperty, StringProperty
 Builder.load_file('./libs/kv/homescreen.kv')
 
 class HomeScreen(Screen):
+
     pass
