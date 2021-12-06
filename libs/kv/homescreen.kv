@@ -36,7 +36,7 @@
 					size: self.size
 					pos: self.pos
 			MDLabel:
-				text: ('[font=Fonts/Roboto-Black]GATDULA, HANZNYL VISSION T.[/font]')
+				text: '[font=Fonts/Roboto-Black]' + root.student_name + '[/font]'
 				font_size: '19dp'
 				markup: True
 				halign: "center"
@@ -62,7 +62,7 @@
 					size: self.size
 					pos: self.pos
 			MDLabel:
-				text: ('[font=Fonts/Roboto-Black]BSCPE 3-2[/font]')
+				text: '[font=Fonts/Roboto-Black]' + root.student_cs + '[/font]'
 				font_size: '19dp'
 				markup: True
 				halign: "center"
@@ -105,7 +105,7 @@
 			text_color: rgba('#07575B')
 			pos_hint: {'center_x': 0.35, 'center_y' : 0.31}
 		MDLabel:
-			text: ('[font=Fonts/Roboto-Medium]07:46:26 AM[/font]')
+			text: '[font=Fonts/Roboto-Medium]' + root.time_in + '[/font]'
 			font_size: '15dp'
 			markup: True
 			halign: "center"
@@ -131,7 +131,7 @@
 			text_color: rgba('#07575B')
 			pos_hint: {'center_x': 0.65, 'center_y' : 0.31}
 		MDLabel:
-			text: ('[font=Fonts/Roboto-Medium]05:32:17 PM[/font]')
+			text: '[font=Fonts/Roboto-Medium]' + root.time_out + '[/font]'
 			font_size: '15dp'
 			markup: True
 			halign: "center"
@@ -147,7 +147,7 @@
 			text_color: rgba('#FFFFFF')
 			pos_hint: {'center_x': 0.5, 'center_y' : 0.18}
 		MDLabel:
-			text: ('[font=Fonts/Roboto-Black]36.5°C[/font]')
+			text: '[font=Fonts/Roboto-Black]' + root.student_temperature + '°C' + '[/font]'
 			font_size: '21dp'
 			markup: True
 			halign: "center"
@@ -198,7 +198,7 @@
 				size: self.size
 				pos: self.pos
 		MDLabel:
-			text: ('[font=Fonts/Roboto-Black]201914564[/font]')
+			text: '[font=Fonts/Roboto-Black]' + root.student_number + '[/font]'
 			font_size: '18dp'
 			markup: True
 			halign: "center"
