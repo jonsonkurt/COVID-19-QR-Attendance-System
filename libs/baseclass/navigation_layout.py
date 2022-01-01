@@ -13,4 +13,6 @@ class NavLayoutScreen(Screen):
         class_key.class_key.clear()
 
     def activate_scanner(self):
-        homescreen.HomeScreen.scan(self)
+        pass
+        # homescreen.HomeScreen.scan(self)
+        #scanner.scan(self)
