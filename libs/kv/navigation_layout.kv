@@ -11,7 +11,7 @@
                         id: toolbar
                         title: 'QR Attendance'
                         left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
-                        right_action_items: [["qrcode-scan", lambda x: root.activate_scanner()], ["clipboard-edit", lambda x: nav_drawer.set_state("open")]]
+                        right_action_items: [["account-plus", lambda x: root.add()], ["file-export", lambda x: root.export_attendance()]]
                         theme_text_color: 'Custom'
                         md_bg_color: rgba('#07575B')
                         elevation:5

@@ -1,7 +1,7 @@
 from kivymd.app import MDApp
 from kivy.uix.screenmanager import Screen
 from kivy.lang.builder import Builder
-from libs.baseclass import user_key, class_key, homescreen
+from libs.baseclass import user_key, class_key, homescreen, add_student, export
 
 Builder.load_file('./libs/kv/navigation_layout.kv')
 
@@ -12,7 +12,8 @@ class NavLayoutScreen(Screen):
         user_key.user_key.clear()
         class_key.class_key.clear()
 
-    def activate_scanner(self):
-        pass
-        # homescreen.HomeScreen.scan(self)
-        #scanner.scan(self)
+    def add(self):
+        add_student.add_student_dialog(self)
+
+    def export_attendance(self):
+        export.export_dialog(self)
