@@ -1,0 +1,35 @@
+<AddStudent>
+    orientation: "vertical"
+    spacing: "0.05dp"
+    size_hint_y: None
+    height: "275dp"
+    elevation: 20
+
+    MDTextField:
+		id: student_name
+        hint_text: "Student Full Name"
+		line_color_focus: rgba('#07575B')
+
+    MDTextField:
+		id: section_name
+        hint_text: "Course and Section"
+		line_color_focus: rgba('#07575B')
+
+    MDTextField:
+		id: student_num
+        hint_text: "Student Number"
+		line_color_focus: rgba('#07575B')
+
+    MDTextField:
+		id: contact_num
+        hint_text: "Contact Number"
+		line_color_focus: rgba('#07575B')
+
+	MDFillRoundFlatButton:
+		text: "    Add    "
+		theme_text_color: 'Custom'
+		md_bg_color: rgba('#07575B')
+		text_color: rgba('#FFFFFF')
+		pos_hint: {'center_x': .935, 'center_y': .6}
+        on_release:
+            root.save_student(student_name.text, section_name.text, student_num.text, contact_num.text)
