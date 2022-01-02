@@ -32,34 +32,9 @@ class HomeScreen(Screen):
 
     qr_text = StringProperty()
 
-    # this function prevent scanning duplicate student QR code
-    def save_scanned(self):
-
-        scanned = self.ids.scanned_name.text2
-
-        if scanned == scanned_student_names[-1]:
-            pass
-        if scanned == "":
-            pass
-        else:
-            scanned_student_names.append(scanned)
-            new_z = scanned[2:-1]
-            split_info = new_z.split(';')
-            if split_info != scanned_student_names2[-1]:
-                scanned_student_names2.append(split_info)
-
-                app = MDApp.get_running_app()
-                app.show_screen("blank")
-                app.show_screen("home_screen")
-                winsound.Beep(frequency, duration)
-            else:
-                toast('Already Scanned')
-
-            print(scanned_student_names2)
-
     def on_enter(self):
 
-        if len(scanned_student_names2) != 0:
+        if len(scanned_student_names2) > 1:
             if scanned_student_names2[-1] != scanned_student_names3[-1] and scanned_student_names2[-1] not in scanned_student_names3:
                 scanned_student_names3.append(scanned_student_names2[-1])
                 num = str(scanned_student_names3[-1][0])
@@ -67,7 +42,7 @@ class HomeScreen(Screen):
                 ti = str(scanned_student_names3[-1][8])
                 self.time_out = "00:00:00"
                 self.student_number = num
-                self.student_pic = num
+                self.student_pic = str(num)
                 self.student_temperature = temp
                 today = date.today()
                 day = today.strftime("%A, %B %d, %Y")
@@ -115,7 +90,7 @@ class HomeScreen(Screen):
                 temp = str(scanned_student_names3[-1][6])
                 ti = str(scanned_student_names3[-1][8])
                 self.student_number = num
-                self.student_pic = num
+                self.student_pic = str(num)
                 self.student_temperature = temp
                 today = date.today()
                 day = today.strftime("%A, %B %d, %Y")
@@ -142,8 +117,8 @@ class HomeScreen(Screen):
                 conn.close()
             else:
                 toast('Already Scanned')
-
-        else:
+        elif len(scanned_student_names2) == 1:
+            print('Fuck?')
             self.student_number = "000000000"
             self.student_pic = "Student_Vector"
             self.student_name = "------"
@@ -152,3 +127,28 @@ class HomeScreen(Screen):
             self.qr_day = "---"
             self.time_in = "00:00:00"
             self.time_out = "00:00:00"
+
+    # this function prevent scanning duplicate student QR code
+    def save_scanned(self):
+
+        scanned = self.ids.scanned_name.text2
+
+        if scanned == scanned_student_names[-1]:
+            pass
+        if scanned == "":
+            pass
+        else:
+            scanned_student_names.append(scanned)
+            new_z = scanned[2:-1]
+            split_info = new_z.split(';')
+            if split_info != scanned_student_names2[-1]:
+                scanned_student_names2.append(split_info)
+
+                app = MDApp.get_running_app()
+                app.show_screen("blank")
+                app.show_screen("home_screen")
+                winsound.Beep(frequency, duration)
+            else:
+                toast('Already Scanned')
+
+            print(scanned_student_names2)
