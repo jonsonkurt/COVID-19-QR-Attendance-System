@@ -12,9 +12,9 @@ import winsound
 
 Builder.load_file('./libs/kv/homescreen.kv')
 
-scanned_student_names = [""]
-scanned_student_names2 = [""]
-scanned_student_names3 = [""]
+scanned_student_names = ["N"]
+scanned_student_names2 = ["N"]
+scanned_student_names3 = ["N"]
 
 frequency = 2500  # Set Frequency To 2500 Hertz
 duration = 1000  # Set Duration To 1000 ms == 1 second
