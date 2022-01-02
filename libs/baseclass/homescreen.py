@@ -7,14 +7,14 @@ import sqlite3
 from kivymd.uix.card import MDCard
 from kivymd.uix.dialog import MDDialog
 from kivy.properties import StringProperty
-from datetime import date
+from datetime import date, datetime
 import winsound
 
 Builder.load_file('./libs/kv/homescreen.kv')
 
-scanned_student_names = []
-scanned_student_names2 = []
-scanned_student_names3 = []
+scanned_student_names = [""]
+scanned_student_names2 = [""]
+scanned_student_names3 = [""]
 
 frequency = 2500  # Set Frequency To 2500 Hertz
 duration = 1000  # Set Duration To 1000 ms == 1 second
@@ -37,7 +37,7 @@ class HomeScreen(Screen):
 
         scanned = self.ids.scanned_name.text2
 
-        if scanned in scanned_student_names:
+        if scanned == scanned_student_names[-1]:
             pass
         if scanned == "":
             pass
@@ -45,7 +45,7 @@ class HomeScreen(Screen):
             scanned_student_names.append(scanned)
             new_z = scanned[2:-1]
             split_info = new_z.split(';')
-            if split_info not in scanned_student_names2:
+            if split_info != scanned_student_names2[-1]:
                 scanned_student_names2.append(split_info)
 
                 app = MDApp.get_running_app()
@@ -60,11 +60,12 @@ class HomeScreen(Screen):
     def on_enter(self):
 
         if len(scanned_student_names2) != 0:
-            if scanned_student_names2[-1] not in scanned_student_names3:
+            if scanned_student_names2[-1] != scanned_student_names3[-1] and scanned_student_names2[-1] not in scanned_student_names3:
                 scanned_student_names3.append(scanned_student_names2[-1])
                 num = str(scanned_student_names3[-1][0])
                 temp = str(scanned_student_names3[-1][6])
                 ti = str(scanned_student_names3[-1][8])
+                self.time_out = "00:00:00"
                 self.student_number = num
                 self.student_pic = num
                 self.student_temperature = temp
@@ -93,7 +94,8 @@ class HomeScreen(Screen):
                     student_number INTEGER, 
                     contact_number INTEGER,
                     attendance_day  VARCHAR(30),
-                    time_in VARCHAR(30))""")
+                    time_in VARCHAR(30),
+                    time_out VARCHAR(30))""")
                 cur.execute(
                     """INSERT INTO present_students(
                         stud_id, 
@@ -105,6 +107,37 @@ class HomeScreen(Screen):
                         time_in) 
                         VALUES(?,?,?,?,?,?,?)""", 
                     (student_key, self.student_name, self.student_cs, self.student_number, student_contact, day2, self.time_in))
+                conn.commit()
+                conn.close()
+            elif scanned_student_names2[-1] != scanned_student_names3[-1] and scanned_student_names2[-1] in scanned_student_names3:
+                scanned_student_names3.append(scanned_student_names2[-1])
+                num = str(scanned_student_names3[-1][0])
+                temp = str(scanned_student_names3[-1][6])
+                ti = str(scanned_student_names3[-1][8])
+                self.student_number = num
+                self.student_pic = num
+                self.student_temperature = temp
+                today = date.today()
+                day = today.strftime("%A, %B %d, %Y")
+                day2 = today.strftime("%B %d, %Y")
+                now = datetime.now()
+                to = str(now.strftime("%H:%M:%S"))
+                self.qr_day = day
+                self.time_in = ti
+                self.time_out = to
+
+                conn = sqlite3.connect("mybase.db")
+                cur = conn.cursor()
+                find = ("SELECT * FROM student_list WHERE student_number = ?")
+                cur.execute(find, [(self.student_number)])
+                results = cur.fetchall()
+
+                self.student_cs = str(results[0][2])
+                student_key = results[0][0]
+                self.student_name = results[0][1]
+                student_contact = results[0][4]
+
+                cur.execute('UPDATE present_students SET time_out=? WHERE student_number=?', (self.time_out, self.student_number))
                 conn.commit()
                 conn.close()
             else:
