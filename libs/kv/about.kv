@@ -10,52 +10,42 @@
 				size: self.size
 				pos: self.pos
 				radius: [0, 0, 0, 0]
-		
 	FloatLayout:
-		pos_hint: {'center_y': 0.95, 'center_x': 0.5}
+		pos_hint: {'center_y': 0.95, 'center_x': 0.57}
 		size_hint: 1.20, 0.45
 
 		canvas:
-			Color:
-				rgba: rgba('#C0DEE5')
 			RoundedRectangle:
 				size: self.size
 				pos: self.pos
 				radius: [0, 0, 0, 0]
-		
 		MDLabel:
 			text: ('[font=Fonts/Roboto-Blackitalic]ABOUT[/font]')
-			font_size: '48dp'
+			font_size: '40dp'
 			markup: True
 			halign: "center"
 			theme_text_color: 'Custom'
 			text_color: rgba('#003B46')
 			pos_hint: {'center_x': 0.47, 'center_y' : 0.42}
-		
 	FloatLayout:
-		pos_hint: {'center_y': 0.80, 'center_x': 0.5}
+		pos_hint: {'center_y': 0.807, 'center_x': 0.57}
 		size_hint: 0.3, 0.07
 
 		canvas:
-			Color:
-				rgba: rgba('#C0DEE5')
 			RoundedRectangle:
 				size: self.size
 				pos: self.pos
 				radius: [0, 0, 0, 0]
-		
 		MDLabel:
 			text: ('[font=Fonts/Roboto-Blackitalic]THE APP[/font]')
-			font_size: '35dp'
+			font_size: '30dp'
 			markup: True
 			halign: "center"
 			theme_text_color: 'Custom'
 			text_color: rgba('#003B46')
-			pos_hint: {'center_x': 0.67, 'center_y' : 0.8}	
-
-
+			pos_hint: {'center_x': 0.67, 'center_y' : 0.85}
 	FloatLayout:
-		pos_hint: {'center_y': 0.87, 'center_x': 0.5}
+		pos_hint: {'center_y': 0.87, 'center_x': 0.57}
 		size_hint: 0.25, 0.005
 
 		canvas:
@@ -65,36 +55,13 @@
 				size: self.size
 				pos: self.pos
 				radius: [0, 0, 0, 0]
-
 	Image:
-        pos_hint: {'center_x': 0.30, 'center_y' : 0.87 }
+        pos_hint: {'center_x': 0.37, 'center_y' : 0.87 }
         source: 'Media/QR_Attendance_Logo.png'
         size_hint_x: 0.15
         allow_stretch: False
-
 	FloatLayout:
-		pos_hint: {'center_y': 0.5, 'center_x': 0.5}
-		size_hint: 1.20, 0.45
-
-		canvas:
-			Color:
-				rgba: rgba('#FBFBFB') 
-			RoundedRectangle:
-				size: self.size
-				pos: self.pos
-				radius: [0, 0, 0, 0]
-		
-		MDLabel:
-			text: ('[font=Fonts/Roboto-Blackitalic]Quick Response (QR) Attendance [/font]')
-			font_size: '40dp'
-			markup: True
-			halign: "center"
-			theme_text_color: 'Custom'
-			text_color: rgba('#003B46')
-			pos_hint: {'center_x': 0.5, 'center_y' : 0.7}
-	
-	FloatLayout:
-		pos_hint: {'center_y': 0.25, 'center_x': 0.5}
+		pos_hint: {'center_y': 0.35, 'center_x': 0.5}
 		size_hint: 0.80, 0.45
 
 		canvas:
@@ -104,15 +71,29 @@
 				size: self.size
 				pos: self.pos
 				radius: [0, 0, 0, 0]
-
 		MDLabel:
-			text: ('[font=Fonts/Roboto-Light]The proposed Quick Response (QR) Code-Based Attendance System aims to address the issue of reducing the inconvenience of traditional attendance systems, to adapt to a modern technology and to prevent the risk of covid 19 infections by avoiding physical or direct contact. It is done by using smart phone and generating their own QR codes that contains the personal information’s of students that is needed in a attendance such as name, section, date and time of arrival. [/font]')
-			font_size: '22dp'
+			text: ('[font=Fonts/Roboto-Light]The proposed Quick Response (QR) Code-Based Attendance System aims to address the issue of reducing the inconvenience of traditional attendance systems, to adapt to a modern technology and to prevent the risk of COVID-19 infections by avoiding physical or direct contact. It is done by using smart phone and generating their own QR codes that contains the personal information’s of students that is needed in a attendance such as name, section, date and time of arrival. [/font]')
+			font_size: '18dp'
 			markup: True
 			halign: "justify"
 			valign: "center"
 			theme_text_color: 'Custom'
 			text_color: rgba('#003B46')
-			pos_hint: {'center_x': 0.5, 'center_y' : 0.8}
-		
-	
+			pos_hint: {'center_x': 0.5, 'center_y' : 0.5}
+	FloatLayout:
+		pos_hint: {'center_y': 0.5, 'center_x': 0.5}
+		size_hint: 1.20, 0.45
+
+		canvas:
+			RoundedRectangle:
+				size: self.size
+				pos: self.pos
+				radius: [0, 0, 0, 0]
+		MDLabel:
+			text: ('[font=Fonts/Roboto-Blackitalic]Quick Response (QR) Attendance [/font]')
+			font_size: '30dp'
+			markup: True
+			halign: "center"
+			theme_text_color: 'Custom'
+			text_color: rgba('#003B46')
+			pos_hint: {'center_x': 0.5, 'center_y' : 0.7}
