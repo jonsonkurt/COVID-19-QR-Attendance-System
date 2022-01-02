@@ -44,7 +44,8 @@ def export_dialog(self):
                             course_section,
                             student_number,
                             contact_number,
-                            time_in
+                            time_in,
+                            time_out
                             FROM present_students 
                             ORDER BY course_section, full_name ASC""")
 
@@ -56,13 +57,14 @@ def export_dialog(self):
         worksheet.set_column(0, 0, 35)
         worksheet.set_column(1, 1, 25)
         worksheet.set_column(2, 3, 20)
-        worksheet.set_column(4, 4, 10)
+        worksheet.set_column(4, 5, 10)
 
         worksheet.write('A1', 'Student Name', text_format)
         worksheet.write('B1', 'Course and Section', text_format)
         worksheet.write('C1', 'Student Number', text_format)
         worksheet.write('D1', 'Contact Number', text_format)
         worksheet.write('E1', 'Time In', text_format)
+        worksheet.write('F1', 'Time Out', text_format)
         
         for i, row in enumerate(result2, 1):
             for j, value in enumerate(row):
