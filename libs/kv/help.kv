@@ -1,12 +1,113 @@
 <HelpScreen>
 	FloatLayout:
-		pos_hint: {'center_y': 0.5, 'center_x': 0.5}
-		size_hint: 0.88, 0.8
+		pos_hint: {'center_y': 0.95, 'center_x': 0.5}
+		size_hint: 1.20, 0.45
 
 		canvas:
 			Color:
-				rgba: rgba('#8E8686')
+				rgba: rgba('#C0DEE5')
 			RoundedRectangle:
 				size: self.size
 				pos: self.pos
-				radius: [40, 40, 40, 40]
+				radius: [0, 0, 0, 0]
+	FloatLayout:
+		pos_hint: {'center_y': 0.95, 'center_x': 0.56}
+		size_hint: 1.20, 0.45
+
+		canvas:
+			RoundedRectangle:
+				size: self.size
+				pos: self.pos
+				radius: [0, 0, 0, 0]
+		MDLabel:
+			text: ('[font=Fonts/Roboto-Blackitalic]HELP[/font]')
+			font_size: '40dp'
+			markup: True
+			halign: "center"
+			theme_text_color: 'Custom'
+			text_color: rgba('#003B46')
+			pos_hint: {'center_x': 0.5, 'center_y' : 0.33}
+	Image:
+        pos_hint: {'center_x': 0.4, 'center_y' : 0.87 }
+        source: 'Media/QR_Attendance_Logo.png'
+        size_hint_x: 0.15
+        allow_stretch: False
+	FloatLayout:
+		pos_hint: {'center_y': 0.45, 'center_x': 0.5}
+		size_hint: 1.20, 0.42
+
+		canvas:
+			Color:
+				rgba: rgba('#003B46')
+			RoundedRectangle:
+				size: self.size
+				pos: self.pos
+				radius: [0, 0, 0, 0]
+		MDIcon:
+			icon: "account-plus"
+			font_size: 80
+			theme_text_color: 'Custom'
+			text_color: rgba('#FFFFFF')
+			pos_hint: {"center_x": 0.15, "center_y": 0.5}
+	FloatLayout:
+		pos_hint: {'center_y': 0.45, 'center_x': 1.08}
+		size_hint: 1.20, 0.42
+
+		canvas:
+			Color:
+				rgba: rgba('#003B46')
+			RoundedRectangle:
+				size: self.size
+				pos: self.pos
+				radius: [0, 0, 0, 0]
+		MDIcon:
+			icon: "file-export"
+			font_size: 80
+			theme_text_color: 'Custom'
+			text_color: rgba('#FFFFFF')
+			pos_hint: {"center_x": 0.08, "center_y": 0.5}
+	FloatLayout:
+		pos_hint: {'center_y': 0.45, 'center_x': 0.5}
+		size_hint: 0.008, 0.35
+
+		canvas:
+			Color:
+				rgba: rgba('#C0DEE5')
+			RoundedRectangle:
+				size: self.size
+				pos: self.pos
+				radius: [3, 3, 3, 3]
+	FloatLayout:
+		pos_hint: {'center_y': 0.12, 'center_x': 0.5}
+		size_hint: 1.20, 0.20
+
+		canvas:
+			Color:
+				rgba: rgba('#C0DEE5')
+			RoundedRectangle:
+				size: self.size
+				pos: self.pos
+				radius: [0, 0, 0, 0]
+		MDLabel:
+			text: ('[font=Fonts/Roboto-Black]NOTE:[/font]')
+			font_size: '25dp'
+			markup: True
+			halign: "center"
+			theme_text_color: 'Custom'
+			text_color: rgba('#003B46')
+			pos_hint: {'center_x': 0.2, 'center_y' : 0.5}
+
+
+# Note : Please make sure that your QR code given by the application is visible and near the camera.
+
+#	FloatLayout:
+#		pos_hint: {'center_y': 0.12, 'center_x': 0.55}
+#		size_hint: 0.75, 0.20
+
+#		canvas:
+#			Color:
+#				rgba: rgba('#003B46')
+#			RoundedRectangle:
+#				size: self.size
+#				pos: self.pos
+#				radius: [0, 0, 0, 0]
