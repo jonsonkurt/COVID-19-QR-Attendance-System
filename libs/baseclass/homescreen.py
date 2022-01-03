@@ -2,7 +2,6 @@ from kivymd.app import MDApp
 from kivy.lang.builder import Builder
 from kivymd.toast.kivytoast import toast
 from kivy.uix.screenmanager import Screen
-from libs.baseclass import user_key, class_key
 import sqlite3
 from kivymd.uix.card import MDCard
 from kivymd.uix.dialog import MDDialog
@@ -56,34 +55,61 @@ class HomeScreen(Screen):
                 find = ("SELECT * FROM student_list WHERE student_number = ?")
                 cur.execute(find, [(self.student_number)])
                 results = cur.fetchall()
+                if len(results) == 0:
+                    self.student_number = "000000000"
+                    self.student_pic = "Student_Vector"
+                    self.student_name = "------"
+                    self.student_cs = "------"
+                    self.student_temperature = "--"
+                    self.qr_day = "---"
+                    self.time_in = "00:00:00"
+                    self.time_out = "00:00:00"
+                    return toast("Student not found. Contact administration.")
+                else:
+                    self.student_cs = str(results[0][2])
+                    student_key = results[0][0]
+                    self.student_name = results[0][1]
+                    student_contact = results[0][4]
 
-                self.student_cs = str(results[0][2])
-                student_key = results[0][0]
-                self.student_name = results[0][1]
-                student_contact = results[0][4]
-
-                cur.execute("""CREATE TABLE IF NOT EXISTS present_students(
-                    stud_id INTEGER, 
-                    full_name TEXT, 
-                    course_section TEXT, 
-                    student_number INTEGER, 
-                    contact_number INTEGER,
-                    attendance_day  VARCHAR(30),
-                    time_in VARCHAR(30),
-                    time_out VARCHAR(30))""")
-                cur.execute(
-                    """INSERT INTO present_students(
-                        stud_id, 
-                        full_name, 
-                        course_section, 
-                        student_number, 
-                        contact_number,
-                        attendance_day, 
-                        time_in) 
-                        VALUES(?,?,?,?,?,?,?)""", 
-                    (student_key, self.student_name, self.student_cs, self.student_number, student_contact, day2, self.time_in))
-                conn.commit()
-                conn.close()
+                    cur.execute("""CREATE TABLE IF NOT EXISTS present_students(
+                        stud_id INTEGER, 
+                        full_name TEXT, 
+                        course_section TEXT, 
+                        student_number INTEGER, 
+                        contact_number INTEGER,
+                        attendance_day  VARCHAR(30),
+                        time_in VARCHAR(30),
+                        time_out VARCHAR(30))""")
+                    find = ("SELECT * FROM present_students WHERE student_number = ?")
+                    cur.execute(find, [(self.student_number)])
+                    results = cur.fetchall()
+                    if len(results) == 1:
+                        if results[0][7] is None:
+                            self.student_cs = str(results[0][2])
+                            student_key = results[0][0]
+                            self.student_name = results[0][1]
+                            student_contact = results[0][4]
+                            now = datetime.now()
+                            to = str(now.strftime("%H:%M:%S"))
+                            self.time_out = to
+                            cur.execute('UPDATE present_students SET time_out=? WHERE student_number=?', (self.time_out, self.student_number))
+                            conn.commit()
+                        else:
+                            pass               
+                    else:
+                        cur.execute(
+                            """INSERT INTO present_students(
+                                stud_id, 
+                                full_name, 
+                                course_section, 
+                                student_number, 
+                                contact_number,
+                                attendance_day, 
+                                time_in) 
+                                VALUES(?,?,?,?,?,?,?)""", 
+                            (student_key, self.student_name, self.student_cs, self.student_number, student_contact, day2, self.time_in))
+                    conn.commit()
+                    conn.close()
             elif scanned_student_names2[-1] != scanned_student_names3[-1] and scanned_student_names2[-1] in scanned_student_names3:
                 scanned_student_names3.append(scanned_student_names2[-1])
                 num = str(scanned_student_names3[-1][0])
@@ -106,19 +132,28 @@ class HomeScreen(Screen):
                 find = ("SELECT * FROM student_list WHERE student_number = ?")
                 cur.execute(find, [(self.student_number)])
                 results = cur.fetchall()
+                if len(results) == 0:
+                    self.student_number = "000000000"
+                    self.student_pic = "Student_Vector"
+                    self.student_name = "------"
+                    self.student_cs = "------"
+                    self.student_temperature = "--"
+                    self.qr_day = "---"
+                    self.time_in = "00:00:00"
+                    self.time_out = "00:00:00"
+                    return toast("Student not found. Contact administration.")
+                else:         
+                    self.student_cs = str(results[0][2])
+                    student_key = results[0][0]
+                    self.student_name = results[0][1]
+                    student_contact = results[0][4]
 
-                self.student_cs = str(results[0][2])
-                student_key = results[0][0]
-                self.student_name = results[0][1]
-                student_contact = results[0][4]
-
-                cur.execute('UPDATE present_students SET time_out=? WHERE student_number=?', (self.time_out, self.student_number))
+                    cur.execute('UPDATE present_students SET time_out=? WHERE student_number=?', (self.time_out, self.student_number))
                 conn.commit()
                 conn.close()
             else:
                 toast('Already Scanned')
         elif len(scanned_student_names2) == 1:
-            print('Fuck?')
             self.student_number = "000000000"
             self.student_pic = "Student_Vector"
             self.student_name = "------"
