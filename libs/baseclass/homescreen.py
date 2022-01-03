@@ -8,6 +8,7 @@ from kivymd.uix.dialog import MDDialog
 from kivy.properties import StringProperty
 from datetime import date, datetime
 import winsound
+import os
 
 Builder.load_file('./libs/kv/homescreen.kv')
 
@@ -41,7 +42,10 @@ class HomeScreen(Screen):
                 ti = str(scanned_student_names3[-1][8])
                 self.time_out = "00:00:00"
                 self.student_number = num
-                self.student_pic = str(num)
+                if os.path.exists("Media/" + str(num) + ".jpg") == True:
+                    self.student_pic = str(num)
+                else:
+                    self.student_pic = "Student_Vector"
                 self.student_temperature = temp
                 today = date.today()
                 day = today.strftime("%A, %B %d, %Y")
@@ -116,7 +120,10 @@ class HomeScreen(Screen):
                 temp = str(scanned_student_names3[-1][6])
                 ti = str(scanned_student_names3[-1][8])
                 self.student_number = num
-                self.student_pic = str(num)
+                if os.path.exists("Media/" + str(num) + ".jpg") == True:
+                    self.student_pic = str(num)
+                else:
+                    self.student_pic = "Student_Vector"
                 self.student_temperature = temp
                 today = date.today()
                 day = today.strftime("%A, %B %d, %Y")
