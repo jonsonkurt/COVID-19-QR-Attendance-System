@@ -112,9 +112,7 @@
             font_size: "10dp"
 			pos_hint: {'center_x' : 0.5, 'center_y' : 0.22}
 			on_press:
-				# root.do_login(username.text, password.text)
-                # username.text = ""
-                # password.text = ""
                 root.manager.transition.direction = 'left'
                 root.manager.transition.duration = .3
+				# root.do_login(username.text, password.text)
                 app.show_screen('home_screen')
