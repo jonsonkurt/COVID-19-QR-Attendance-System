@@ -1,7 +1,7 @@
 from kivymd.app import MDApp
 from kivy.uix.screenmanager import Screen
 from kivy.lang.builder import Builder
-from libs.baseclass import user_key, class_key, homescreen, add_student, export
+from libs.baseclass import homescreen, add_student, export
 
 Builder.load_file('./libs/kv/navigation_layout.kv')
 
