@@ -72,6 +72,16 @@ def export_dialog(self):
         
         workbook.close()
 
+        curr.execute("""CREATE TABLE IF NOT EXISTS attendance_record(
+                        stud_id INTEGER, 
+                        full_name TEXT, 
+                        course_section TEXT, 
+                        student_number INTEGER, 
+                        contact_number INTEGER,
+                        attendance_day  VARCHAR(30),
+                        time_in VARCHAR(30),
+                        time_out VARCHAR(30))""")
+        curr.execute("INSERT INTO attendance_record SELECT * FROM present_students")
         curr.execute("DELETE FROM present_students")
         conn.commit()
 
