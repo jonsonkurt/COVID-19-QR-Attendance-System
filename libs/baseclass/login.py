@@ -15,7 +15,7 @@ class LoginScreen(Screen):
         conn = sqlite3.connect("mybase.db")
         cur = conn.cursor()
 
-        cur.execute("CREATE TABLE IF NOT EXISTS accounts(account_id integer PRIMARY KEY, email_add VARCHAR(30), pass VARCHAR(30))") # Not sure if this is necessary since .db file is provided
+        cur.execute("CREATE TABLE IF NOT EXISTS accounts(account_id integer PRIMARY KEY, email_add VARCHAR(30), pass VARCHAR(30))")
         cur.execute("SELECT * FROM accounts")
         cur.fetchall()
 
@@ -27,7 +27,6 @@ class LoginScreen(Screen):
             if results:
                 for i in results:
                     key = i[0]
-                    user_key.user_key.append(key)
                     app = MDApp.get_running_app()
                     self.manager.transition.direction = "left"
                     self.manager.transition.duration = 0.5
