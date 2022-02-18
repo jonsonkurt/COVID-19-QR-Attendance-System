@@ -5,6 +5,8 @@ The desktop application also has the functionality to add a student to the datab
 
 Screenshots from the Application:
 
+https://github.com/jonsonkurt/COVID-19-QR-Attendance-System/blob/master/Screenshots/home_page_desktop.png?raw=true
+
 https://github.com/jonsonkurt/COVID-19-QR-Attendance-System/blob/master/Screenshots/login_page_desktop.png
 
 https://github.com/jonsonkurt/COVID-19-QR-Attendance-System/blob/master/Screenshots/home_page_desktop.png
